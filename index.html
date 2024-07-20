@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages for My Girlfriend</title>
+    <style> 
+	body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff;
+    font-family: Arial, sans-serif;
+}
+
+#message-container {
+    text-align: center;
+    border: 2px solid #000;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+#message {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#next-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+.im{
+background-image: url(https://ih1.redbubble.net/image.815554343.0679/st,small,845x845-pad,1000x1000,f8f8f8.u2.jpg);
+    background-size: 146%;
+    background-position: center;
+    width: 37%;
+    height: 170px}
+	</style>
+</head>
+<body>
+    <div id="message-container">
+        <p id="message"></p>
+        <button id="next-button" onclick="showNextMessage()">Next</button>
+    </div>
+
+    <script>
+	const messages = [
+    "Hey there, gurl!",
+    "I just wanted to say...",
+    "A secret...",
+	"I hope you understand",
+	"I belive that...",
+    "I am ......",
+	"IRON MAN"
+];
+
+    const bg=['#ffbebf','#ffbeea','#f0beff','#c4beff','#beeaff','#c0ffbe','#ecffbe','#ffeebe']
+
+let currentMessageIndex = 0;
+
+function showNextMessage() {
+    if (currentMessageIndex < messages.length) {
+        document.getElementById("message").innerText = messages[currentMessageIndex];
+        document.querySelector('body').style.backgroundColor=bg[currentMessageIndex];
+		if(document.getElementById("message").innerText=='IRON MAN'){document.getElementById('message-container').classList.add('im');}
+		else{document.getElementById('message-container').classList.remove('im');};
+        currentMessageIndex++;
+		
+    } else {
+        document.getElementById("message").innerText = "That's all the gurl!😉🤞 \n Dont share to anyone🤝";
+        document.getElementById("next-button").style.display = "none";
+		document.getElementById('message-container').classList.remove('im');
+    }
+}
+
+// Initialize the first message
+document.addEventListener("DOMContentLoaded", () => {
+    showNextMessage();
+});
+	</script>
+</body>
+</html>
